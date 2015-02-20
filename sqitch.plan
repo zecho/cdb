@@ -2,3 +2,11 @@
 %project=cdb
 %uri=https://github.com/comicgator/cdb/
 
+roles 2015-02-19T18:16:49Z Mr ComicGator <mr@comicgator.com> # Roles for accessing the database.
+uuid 2015-02-19T18:37:47Z Mr ComicGator <mr@comicgator.com> # Create uuid extension to used as datatype for primary keys.
+schema [roles] 2015-02-19T18:28:10Z Mr ComicGator <mr@comicgator.com> # Create schema cg, short for comicgator.
+comic_table [roles uuid schema] 2015-02-19T18:49:33Z Mr ComicGator <mr@comicgator.com> # Table for comic data.
+upsert_comic [schema uuid roles comic_table] 2015-02-19T23:40:20Z Mr ComicGator <mr@comicgator.com> # Function for idempotent insert/update of comic row
+update_comic [schema uuid roles comic_table] 2015-02-19T23:40:51Z Mr ComicGator <mr@comicgator.com> # Function for updating a comic row.
+geek_table [roles schema uuid] 2015-02-20T00:39:50Z Mr ComicGator <mr@comicgator.com> # Table containing user data, affectionately referred to as geeks.
+strip_table [roles uuid schema comic_table] 2015-02-20T00:54:32Z Mr ComicGator <mr@comicgator.com> # Table for storing comic strip data.
