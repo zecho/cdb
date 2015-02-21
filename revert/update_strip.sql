@@ -1,0 +1,7 @@
+-- Revert update_strip
+
+BEGIN;
+
+DROP FUNCTION cg.update_strip(UUID, UUID, VARCHAR, INTEGER, VARCHAR, VARCHAR, VARCHAR, VARCHAR, TEXT);
+
+COMMIT;
