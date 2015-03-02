@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE cg.comic_geek;
+DROP TABLE "1".comic_geek;
 
 COMMIT;

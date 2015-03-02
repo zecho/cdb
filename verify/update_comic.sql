@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT has_function_privilege('lurker', 'cg.update_comic(UUID, VARCHAR, VARCHAR, VARCHAR, VARCHAR)', 'execute');
+SELECT has_function_privilege('lurker', '"1".update_comic(UUID, VARCHAR, VARCHAR, VARCHAR, VARCHAR)', 'execute');
 
 ROLLBACK;

@@ -7,7 +7,7 @@
 
 BEGIN;
 
-CREATE OR REPLACE FUNCTION cg.update_strip(
+CREATE OR REPLACE FUNCTION "1".update_strip(
     _id UUID,
     _comic_id UUID,
     _title VARCHAR(63),
@@ -18,16 +18,16 @@ CREATE OR REPLACE FUNCTION cg.update_strip(
     _bonus_image_url VARCHAR(2083),
     _alt_text TEXT
 )
-RETURNS cg.strip 
+RETURNS "1".strip
 AS $$
-UPDATE cg.strip 
-SET (comic_id, title, number, url, image_url, thumbnail_image_url, bonus_image_url, alt_text) 
+UPDATE "1".strip
+SET (comic_id, title, number, url, image_url, thumbnail_image_url, bonus_image_url, alt_text)
     = (_comic_id, _title, _number, _url, _image_url, _thumbnail_image_url, _bonus_image_url, _alt_text)
 WHERE id = _id
 AND url = _url RETURNING *;
 $$ LANGUAGE SQL
 SECURITY DEFINER;
 
-GRANT EXECUTE ON FUNCTION cg.update_strip(UUID, UUID, VARCHAR, INTEGER, VARCHAR, VARCHAR, VARCHAR, VARCHAR, TEXT) TO lurker;
+GRANT EXECUTE ON FUNCTION "1".update_strip(UUID, UUID, VARCHAR, INTEGER, VARCHAR, VARCHAR, VARCHAR, VARCHAR, TEXT) TO lurker;
 
 COMMIT;

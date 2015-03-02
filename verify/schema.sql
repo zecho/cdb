@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT pg_catalog.has_schema_privilege('cg', 'usage');
+SELECT pg_catalog.has_schema_privilege('1', 'usage');
 
 ROLLBACK;

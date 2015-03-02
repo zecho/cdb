@@ -12,15 +12,15 @@ SELECT id,
 	alt_text,
 	created_at,
 	updated_at
- FROM cg.strip
+ FROM "1".strip
  WHERE FALSE;
 
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_uq_url';
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_uq_comic_number';
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_ix_updated_at';
 
-SELECT has_table_privilege('lurker', 'cg.strip', 'select');
-SELECT has_table_privilege('lurker', 'cg.strip', 'update');
-SELECT has_table_privilege('lurker', 'cg.strip', 'insert');
+SELECT has_table_privilege('lurker', '"1".strip', 'select');
+SELECT has_table_privilege('lurker', '"1".strip', 'update');
+SELECT has_table_privilege('lurker', '"1".strip', 'insert');
 
 ROLLBACK;

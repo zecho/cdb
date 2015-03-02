@@ -7,17 +7,17 @@
 
 BEGIN;
 
-CREATE TABLE cg.comic_geek (
-geek_id UUID NOT NULL REFERENCES cg.geek(id),
-comic_id UUID NOT NULL REFERENCES cg.comic(id),
+CREATE TABLE "1".comic_geek (
+geek_id UUID NOT NULL REFERENCES "1".geek(id),
+comic_id UUID NOT NULL REFERENCES "1".comic(id),
 is_viewed BOOLEAN DEFAULT FALSE,
 is_starred BOOLEAN DEFAULT FALSE,
 created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (geek_id, comic_id));
 
-CREATE INDEX comic_geek_ix_geek_id ON cg.comic_geek (geek_id);
-CREATE INDEX comic_geek_ix_comic_id ON cg.comic_geek (comic_id);
-CREATE INDEX comic_geek_ix_updated_at ON cg.comic_geek (updated_at);
+CREATE INDEX comic_geek_ix_geek_id ON "1".comic_geek (geek_id);
+CREATE INDEX comic_geek_ix_comic_id ON "1".comic_geek (comic_id);
+CREATE INDEX comic_geek_ix_updated_at ON "1".comic_geek (updated_at);
 
 COMMIT;

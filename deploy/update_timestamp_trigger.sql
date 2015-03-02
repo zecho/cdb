@@ -7,7 +7,7 @@
 
 BEGIN;
 
-CREATE OR REPLACE FUNCTION cg.update_timestamp()
+CREATE OR REPLACE FUNCTION "1".update_timestamp()
 RETURNS TRIGGER AS $$
 BEGIN
     NEW.updated_at = CURRENT_TIMESTAMP;
@@ -15,19 +15,19 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER comic_tg_update_timestamp BEFORE UPDATE ON cg.comic
-FOR EACH ROW EXECUTE PROCEDURE cg.update_timestamp();
+CREATE TRIGGER comic_tg_update_timestamp BEFORE UPDATE ON "1".comic
+FOR EACH ROW EXECUTE PROCEDURE "1".update_timestamp();
 
-CREATE TRIGGER geek_tg_update_timestamp BEFORE UPDATE ON cg.geek 
-FOR EACH ROW EXECUTE PROCEDURE cg.update_timestamp();
+CREATE TRIGGER geek_tg_update_timestamp BEFORE UPDATE ON "1".geek 
+FOR EACH ROW EXECUTE PROCEDURE "1".update_timestamp();
 
-CREATE TRIGGER strip_tg_update_timestamp BEFORE UPDATE ON cg.strip
-FOR EACH ROW EXECUTE PROCEDURE cg.update_timestamp();
+CREATE TRIGGER strip_tg_update_timestamp BEFORE UPDATE ON "1".strip
+FOR EACH ROW EXECUTE PROCEDURE "1".update_timestamp();
 
-CREATE TRIGGER comic_geek_tg_update_timestamp BEFORE UPDATE ON cg.comic_geek
-FOR EACH ROW EXECUTE PROCEDURE cg.update_timestamp();
+CREATE TRIGGER comic_geek_tg_update_timestamp BEFORE UPDATE ON "1".comic_geek
+FOR EACH ROW EXECUTE PROCEDURE "1".update_timestamp();
 
-CREATE TRIGGER strip_geek_tg_update_timestamp BEFORE UPDATE ON cg.strip_geek
-FOR EACH ROW EXECUTE PROCEDURE cg.update_timestamp();
+CREATE TRIGGER strip_geek_tg_update_timestamp BEFORE UPDATE ON "1".strip_geek
+FOR EACH ROW EXECUTE PROCEDURE "1".update_timestamp();
 
 COMMIT;
