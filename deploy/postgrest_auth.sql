@@ -4,9 +4,6 @@ BEGIN;
 
 CREATE SCHEMA postgrest;
 
--- retroactively grant usage to schema postgrest to c11z
-GRANT USAGE ON SCHEMA postgrest TO c11z;
-
 CREATE TABLE postgrest.auth (
   id character varying NOT NULL,
   rolname name NOT NULL,

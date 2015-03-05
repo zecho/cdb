@@ -4,9 +4,10 @@ BEGIN;
 
 -- c11z is god
 CREATE ROLE c11z SUPERUSER LOGIN PASSWORD 'c11z';
+-- retroactively grant usage to schema postgrest to c11z
+GRANT USAGE ON SCHEMA postgrest TO c11z;
 
 -- anon is useless
-
 CREATE ROLE anon NOLOGIN;
 
 -- lurker is the web crawler's database user
