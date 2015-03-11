@@ -1,8 +1,0 @@
--- Revert upsert_comic
-
-BEGIN;
-
-DROP FUNCTION "1".upsert_comic(VARCHAR, VARCHAR, VARCHAR, VARCHAR);
-DROP FUNCTION "1".upsert_comic(UUID, VARCHAR, VARCHAR, VARCHAR, VARCHAR);
-
-COMMIT;

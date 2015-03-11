@@ -8,8 +8,8 @@
 BEGIN;
 
 CREATE TABLE "1".comic_geek (
-geek_id UUID NOT NULL REFERENCES "1".geek(id),
-comic_id UUID NOT NULL REFERENCES "1".comic(id),
+geek_id INTEGER NOT NULL REFERENCES "1".geek(id),
+comic_id TEXT NOT NULL REFERENCES "1".comic(id),
 is_viewed BOOLEAN DEFAULT FALSE,
 is_starred BOOLEAN DEFAULT FALSE,
 created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

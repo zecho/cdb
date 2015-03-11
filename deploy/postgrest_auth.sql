@@ -5,22 +5,22 @@ BEGIN;
 CREATE SCHEMA postgrest;
 
 CREATE TABLE postgrest.auth (
-  id character varying NOT NULL,
-  rolname name NOT NULL,
-  pass character(60) NOT NULL,
+  id VARCHAR NOT NULL,
+  rolname NAME NOT NULL,
+  pass CHARACTER(60) NOT NULL,
   CONSTRAINT auth_pkey PRIMARY KEY (id)
-) WITH ( OIDS=FALSE );
+);
 
-CREATE FUNCTION postgrest.check_role_exists() RETURNS trigger
+CREATE FUNCTION postgrest.check_role_exists() RETURNS TRIGGER
     LANGUAGE plpgsql
     AS $$
-begin 
-if not exists (select 1 from pg_roles as r where r.rolname = new.rolname) then
-   raise foreign_key_violation using message = 'Cannot create user with unknown role: ' || new.rolname;
-   return null;
- end if;
- return new;
-end
+BEGIN
+IF NOT EXISTS (SELECT 1 FROM pg_roles AS r WHERE r.rolname = NEW.rolname) THEN
+   RAISE foreign_key_violation USING MESSAGE = 'Cannot create user with unknown role: ' || NEW.rolname;
+   RETURN NULL;
+ END IF;
+ RETURN NEW;
+END
 $$;
 
 CREATE CONSTRAINT TRIGGER ensure_auth_role_exists

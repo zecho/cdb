@@ -4,15 +4,10 @@
 
 postgrest_auth 2015-02-28T22:51:51Z Mr ComicGator <mr@comicgator.com> # Schema, table and trigger for postgres to use basic auth for access to the database.
 roles 2015-02-19T18:16:49Z Mr ComicGator <mr@comicgator.com> # Roles for accessing the database.
-uuid 2015-02-19T18:37:47Z Mr ComicGator <mr@comicgator.com> # Create uuid extension to used as datatype for primary keys.
 schema [roles] 2015-02-19T18:28:10Z Mr ComicGator <mr@comicgator.com> # Create schema cg, short for comicgator.
-comic_table [roles uuid schema] 2015-02-19T18:49:33Z Mr ComicGator <mr@comicgator.com> # Table for comic data.
-upsert_comic [schema uuid roles comic_table] 2015-02-19T23:40:20Z Mr ComicGator <mr@comicgator.com> # Function for idempotent insert/update of comic row
-update_comic [schema uuid roles comic_table] 2015-02-19T23:40:51Z Mr ComicGator <mr@comicgator.com> # Function for updating a comic row.
-geek_table [roles schema uuid] 2015-02-20T00:39:50Z Mr ComicGator <mr@comicgator.com> # Table containing user data, affectionately referred to as geeks.
-strip_table [roles uuid schema comic_table] 2015-02-20T00:54:32Z Mr ComicGator <mr@comicgator.com> # Table for storing comic strip data.
-upsert_strip [roles uuid schema comic_table strip_table] 2015-02-20T18:27:45Z Mr ComicGator <mr@comicgator.com> # Idempotent function for inserting/updating a strip.
-update_strip [roles uuid schema comic_table strip_table] 2015-02-20T18:45:54Z Mr ComicGator <mr@comicgator.com> # Function for updating a strip.
-comic_geek_table [roles uuid schema comic_table geek_table] 2015-02-20T21:12:10Z Mr ComicGator <mr@comicgator.com> # Junction table tracking the interaction between geeks and comics.
-strip_geek_table [roles uuid schema strip_table geek_table] 2015-02-20T21:12:21Z Mr ComicGator <mr@comicgator.com> # Junction table tracking the interaction between geeks and strips.
+comic_table [roles schema] 2015-02-19T18:49:33Z Mr ComicGator <mr@comicgator.com> # Table for comic data.
+geek_table [roles schema] 2015-02-20T00:39:50Z Mr ComicGator <mr@comicgator.com> # Table containing user data, affectionately referred to as geeks.
+strip_table [roles schema comic_table] 2015-02-20T00:54:32Z Mr ComicGator <mr@comicgator.com> # Table for storing comic strip data.
+comic_geek_table [roles schema comic_table geek_table] 2015-02-20T21:12:10Z Mr ComicGator <mr@comicgator.com> # Junction table tracking the interaction between geeks and comics.
+strip_geek_table [roles schema strip_table geek_table] 2015-02-20T21:12:21Z Mr ComicGator <mr@comicgator.com> # Junction table tracking the interaction between geeks and strips.
 update_timestamp_trigger [comic_table geek_table strip_table comic_geek_table strip_geek_table] 2015-02-20T23:51:53Z Mr ComicGator <mr@comicgator.com> # Function and triggers for updating updated_at timestamp automatically.

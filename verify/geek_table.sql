@@ -13,4 +13,8 @@ SELECT has_table_privilege('lurker', '"1".geek', 'select');
 SELECT has_table_privilege('lurker', '"1".geek', 'update');
 SELECT has_table_privilege('lurker', '"1".geek', 'insert');
 
+SELECT has_table_privilege('api', '"1".geek', 'select');
+SELECT has_table_privilege('api', '"1".geek', 'update');
+SELECT has_table_privilege('api', '"1".geek', 'insert');
+
 ROLLBACK;
