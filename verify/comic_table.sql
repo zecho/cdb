@@ -20,8 +20,4 @@ SELECT id,
 
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'comic_ix_updated_at';
 
-SELECT has_table_privilege('lurker', '"1".comic', 'select');
-SELECT has_table_privilege('lurker', '"1".comic', 'update');
-SELECT has_table_privilege('lurker', '"1".comic', 'insert');
-
 ROLLBACK;

@@ -21,6 +21,4 @@ updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 
 CREATE INDEX comic_ix_updated_at ON "1".comic (updated_at);
 
-GRANT SELECT, UPDATE, INSERT ON "1".comic TO lurker;
-
 COMMIT;
