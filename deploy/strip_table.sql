@@ -16,13 +16,12 @@ image_url TEXT NOT NULL,
 thumbnail_image_url TEXT NOT NULL,
 bonus_image_url TEXT DEFAULT NULL,
 alt_text TEXT DEFAULT NULL,
+is_special BOOLEAN DEFAULT FALSE,
 created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 
 CREATE UNIQUE INDEX strip_uq_checksum ON "1".strip (checksum);
 CREATE UNIQUE INDEX strip_uq_comic_number ON "1".strip (comic_id, number);
 CREATE INDEX strip_ix_updated_at ON "1".strip (updated_at);
-
-GRANT SELECT, UPDATE, INSERT ON "1".strip TO lurker;
 
 COMMIT;
