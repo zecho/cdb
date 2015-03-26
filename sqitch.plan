@@ -14,3 +14,5 @@ update_timestamp_trigger [comic_table geek_table strip_table comic_geek_table st
 upsert_comic [roles schema comic_table] 2015-03-13T17:24:10Z Mr ComicGator <mr@comicgator.com> # Function for inserting or updating a comic.
 last_strip [roles schema comic_table strip_table] 2015-03-14T23:22:11Z Mr ComicGator <mr@comicgator.com> # Returns the most recent strip url for a comic, if the comic has no strips then it returns the comic's first_url.
 upsert_strip [roles schema comic_table strip_table] 2015-03-18T21:11:36Z Mr ComicGator <mr@comicgator.com> # Function for inserting of updating a Strip.
+comics [roles schema comic_table geek_table comic_geek_table] 2015-03-26T20:59:24Z Mr ComicGator <mr@comicgator.com># Function combining comic and geek usage data, returned as json.
+strips [roles schema strip_table geek_table strip_geek_table] 2015-03-26T21:00:13Z Mr ComicGator <mr@comicgator.com># Function combining strip table with geek usage data returned as json.
