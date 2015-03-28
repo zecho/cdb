@@ -18,7 +18,7 @@ SELECT array_to_json(array_agg(row_to_json(comic_select))) FROM (
 		c.banner_image AS banner_image,
 		c.image_parser AS image_parser,
 		COALESCE(cg.is_viewed, FALSE) AS is_viewed,
-		COALESCE(cg.is_liked, FALSE) AS is_liked,
+		COALESCE(cg.is_starred, FALSE) AS is_starred,
 		c.created_at AS created_at,
 		c.updated_at AS updated_at
 	FROM "1".comic c LEFT JOIN "1".comic_geek cg ON c.id = cg.comic_id

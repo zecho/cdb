@@ -2,7 +2,7 @@
 
 BEGIN;
 
-SELECT geek_id, comic_id, is_viewed, is_liked, created_at, updated_at
+SELECT geek_id, comic_id, is_viewed, is_starred, created_at, updated_at
  FROM "1".comic_geek
  WHERE FALSE;
 

@@ -23,7 +23,7 @@ SELECT array_to_json(array_agg(row_to_json(strip_select))) FROM (
 		s.alt_text AS alt_text,
 		s.is_special AS is_special,
 		COALESCE(sg.is_viewed, FALSE) AS is_viewed,
-		COALESCE(sg.is_liked, FALSE) AS is_liked,
+		COALESCE(sg.is_starred, FALSE) AS is_starred,
 		s.created_at AS created_at,
 		s.updated_at AS updated_at
 	FROM "1".strip s LEFT JOIN "1".strip_geek sg ON s.id = sg.strip_id 
