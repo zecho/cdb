@@ -18,3 +18,7 @@ comics [roles schema comic_table geek_table comic_geek_table] 2015-03-26T20:59:2
 strips [roles schema strip_table geek_table strip_geek_table] 2015-03-26T21:00:13Z Mr ComicGator <mr@comicgator.com> # Function combining strip table with geek usage data returned as json.
 upsert_geek [roles schema geek_table] 2015-03-30T18:50:32Z Mr ComicGator <mr@comicgator.com> # Function for inserting or updating a geek resource.
 geek_secret [roles schema geek_table] 2015-03-30T19:10:57Z Mr ComicGator <mr@comicgator.com> # Function for selecting secret from geek table for sepcific id.
+star_comic [roles schema comic_table geek_table comic_geek_table] 2015-04-01T15:04:24Z Mr ComicGator <mr@comicgator.com> # Function to update or insert row into comic_geek_table setting comic and geek id as well the the is_starred boolean.
+view_comic [roles schema comic_table geek_table comic_geek_table] 2015-04-01T16:59:33Z Mr ComicGator <mr@comicgator.com> # Function to update or insert row into comic_geek_table setting comic and geek id as well the the is_viewed boolean.
+view_strip [roles schema strip_table geek_table strip_geek_table] 2015-04-01T17:10:15Z Mr ComicGator <mr@comicgator.com> # Function to update or insert row into strip_geek_table setting strip and geek id as well the the is_viewed boolean.
+star_strip [roles schema strip_table geek_table strip_geek_table] 2015-04-01T17:10:30Z Mr ComicGator <mr@comicgator.com> # Function to update or insert row into strip_geek_table setting strip and geek id as well the the is_starred boolean.
