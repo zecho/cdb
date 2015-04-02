@@ -8,8 +8,8 @@
 BEGIN;
 
 CREATE FUNCTION "1".star_strip(
-    _strip_id TEXT, 
     _geek_id INTEGER,
+    _strip_id INTEGER,
     _is_starred BOOLEAN)
 RETURNS VOID AS
 $$
@@ -38,6 +38,6 @@ $$
 LANGUAGE plpgsql
 SECURITY DEFINER;
 
-GRANT EXECUTE ON FUNCTION "1".star_strip(TEXT, INTEGER, BOOLEAN) TO maestro;
+GRANT EXECUTE ON FUNCTION "1".star_strip(INTEGER, INTEGER, BOOLEAN) TO maestro;
 
 COMMIT;

@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT has_function_privilege('maestro', '"1".star_comic(TEXT, INTEGER, BOOLEAN)', 'execute');
+SELECT has_function_privilege('maestro', '"1".star_comic(INTEGER, TEXT, BOOLEAN)', 'execute');
 
 ROLLBACK;

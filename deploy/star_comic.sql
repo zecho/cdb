@@ -8,8 +8,8 @@
 BEGIN;
 
 CREATE FUNCTION "1".star_comic(
-    _comic_id TEXT, 
     _geek_id INTEGER,
+    _comic_id TEXT, 
     _is_starred BOOLEAN)
 RETURNS VOID AS
 $$
@@ -38,6 +38,6 @@ $$
 LANGUAGE plpgsql
 SECURITY DEFINER;
 
-GRANT EXECUTE ON FUNCTION "1".star_comic(TEXT, INTEGER, BOOLEAN) TO maestro;
+GRANT EXECUTE ON FUNCTION "1".star_comic(INTEGER, TEXT, BOOLEAN) TO maestro;
 
 COMMIT;

@@ -8,8 +8,8 @@
 BEGIN;
 
 CREATE FUNCTION "1".view_comic(
-	_comic_id TEXT, 
 	_geek_id INTEGER,
+	_comic_id TEXT, 
 	_is_viewed BOOLEAN)
 RETURNS VOID AS
 $$
@@ -38,6 +38,6 @@ $$
 LANGUAGE plpgsql
 SECURITY DEFINER;
 
-GRANT EXECUTE ON FUNCTION "1".view_comic(TEXT, INTEGER, BOOLEAN) TO maestro;
+GRANT EXECUTE ON FUNCTION "1".view_comic(INTEGER, TEXT, BOOLEAN) TO maestro;
 
 COMMIT;
