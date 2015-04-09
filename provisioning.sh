@@ -47,4 +47,7 @@ sqitch target add cdb db:pg:cdb
 # And make the pg engine automattically point to comicdb
 sqitch engine add pg cdb
 
+cd /vagrant
+sqitch deploy --verify
+
 echo "Good Hunting"
