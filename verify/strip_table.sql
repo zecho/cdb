@@ -14,7 +14,7 @@ SELECT id,
 	is_special,
 	created_at,
 	updated_at
- FROM "1".strip
+ FROM cg.strip
  WHERE FALSE;
 
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_uq_checksum';

@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT has_function_privilege('maestro', '"1".geek_secret(INTEGER)', 'execute');
+SELECT has_function_privilege('maestro', 'cg.geek_secret(INTEGER)', 'execute');
 
 ROLLBACK;

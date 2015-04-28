@@ -5,7 +5,7 @@
 
 BEGIN;
 
-CREATE FUNCTION "1".upsert_geek(
+CREATE FUNCTION cg.upsert_geek(
 	_email TEXT,
 	_secret TEXT)
 RETURNS TEXT AS
@@ -14,7 +14,7 @@ DECLARE _result TEXT;
 BEGIN
     LOOP
         -- first try to update the key
-        UPDATE "1".geek
+        UPDATE cg.geek
         SET (email, secret)
         = (_email, _secret)
         WHERE email = _email RETURNING id INTO _result;
@@ -25,7 +25,7 @@ BEGIN
         -- if someone else inserts the same key concurrently,
         -- we could get a unique-key failure
         BEGIN
-            INSERT INTO "1".geek (email, secret)
+            INSERT INTO cg.geek (email, secret)
             VALUES (_email, _secret)
             RETURNING id INTO _result;
             RETURN _result;
@@ -38,6 +38,6 @@ $$
 LANGUAGE plpgsql
 SECURITY DEFINER;
 
-GRANT EXECUTE ON FUNCTION "1".upsert_geek(TEXT, TEXT) TO maestro;
+GRANT EXECUTE ON FUNCTION cg.upsert_geek(TEXT, TEXT) TO maestro;
 
 COMMIT;

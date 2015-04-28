@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE "1".strip;
+DROP TABLE cg.strip;
 
 COMMIT;

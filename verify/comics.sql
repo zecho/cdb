@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT has_function_privilege('maestro', '"1".comics(INTEGER)', 'execute');
+SELECT has_function_privilege('maestro', 'cg.comics(INTEGER)', 'execute');
 
 ROLLBACK;

@@ -7,7 +7,7 @@
 
 BEGIN;
 
-CREATE FUNCTION "1".strips(_geek_id INTEGER, _comic_id TEXT) RETURNS JSON AS
+CREATE FUNCTION cg.strips(_geek_id INTEGER, _comic_id TEXT) RETURNS JSON AS
 $$
 SELECT array_to_json(array_agg(row_to_json(strip_select))) FROM (
 	SELECT
@@ -26,13 +26,13 @@ SELECT array_to_json(array_agg(row_to_json(strip_select))) FROM (
 		COALESCE(sg.is_starred, FALSE) AS is_starred,
 		s.created_at AS created_at,
 		s.updated_at AS updated_at
-	FROM "1".strip s LEFT JOIN "1".strip_geek sg ON s.id = sg.strip_id 
+	FROM cg.strip s LEFT JOIN cg.strip_geek sg ON s.id = sg.strip_id 
 	WHERE s.comic_id = _comic_id AND (sg.geek_id = 1 OR sg.geek_id IS NULL)
 	ORDER BY s.number ASC
 ) strip_select;
 $$ LANGUAGE SQL
 SECURITY DEFINER;
 
-GRANT EXECUTE ON FUNCTION "1".strips(INTEGER, TEXT) TO maestro;
+GRANT EXECUTE ON FUNCTION cg.strips(INTEGER, TEXT) TO maestro;
 
 COMMIT;

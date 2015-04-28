@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP FUNCTION "1".last_strip(TEXT);
+DROP FUNCTION cg.last_strip(TEXT);
 
 COMMIT;

@@ -7,7 +7,7 @@
 
 BEGIN;
 
-CREATE FUNCTION "1".comics(_geek_id INTEGER) RETURNS JSON AS
+CREATE FUNCTION cg.comics(_geek_id INTEGER) RETURNS JSON AS
 $$
 SELECT array_to_json(array_agg(row_to_json(comic_select))) FROM (
 	SELECT
@@ -21,13 +21,13 @@ SELECT array_to_json(array_agg(row_to_json(comic_select))) FROM (
 		COALESCE(cg.is_starred, FALSE) AS is_starred,
 		c.created_at AS created_at,
 		c.updated_at AS updated_at
-	FROM "1".comic c LEFT JOIN "1".comic_geek cg ON c.id = cg.comic_id
+	FROM cg.comic c LEFT JOIN cg.comic_geek cg ON c.id = cg.comic_id
 	WHERE cg.geek_id = 1 OR cg.geek_id IS NULL
 	ORDER BY c.id ASC
 ) comic_select;
 $$ LANGUAGE SQL
 SECURITY DEFINER;
 
-GRANT EXECUTE ON FUNCTION "1".comics(INTEGER) TO maestro;
+GRANT EXECUTE ON FUNCTION cg.comics(INTEGER) TO maestro;
 
 COMMIT;

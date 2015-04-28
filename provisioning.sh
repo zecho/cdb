@@ -27,10 +27,12 @@ sudo sed -i "s/#listen_addresses = 'localhost'/listen_addresses = '*'/g" /etc/po
 echo "host    all             all             0.0.0.0/0               md5" | sudo tee -a /etc/postgresql/$POSTGRE_VERSION/main/pg_hba.conf
 sudo service postgresql start
 
-# Create postgres user for vagrant account
-sudo -u postgres createuser -e -s -w vagrant
 
-# Create database
+# vagrant is god
+sudo -u postgres psql -c "CREATE ROLE vagrant SUPERUSER LOGIN PASSWORD 'vagrant';"
+
+# Create databases
+createdb vagrant
 createdb cdb
 
 sudo service postgresql restart

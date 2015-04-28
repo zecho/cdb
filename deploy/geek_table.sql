@@ -4,17 +4,17 @@
 
 BEGIN;
 
-CREATE TABLE "1".geek (
+CREATE TABLE cg.geek (
 id SERIAL PRIMARY KEY,
 email TEXT NOT NULL,
 secret TEXT DEFAULT NULL,
 created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 
-CREATE UNIQUE INDEX geek_uq_email ON "1".geek (email);
-CREATE INDEX geek_ix_updated_at ON "1".geek (updated_at);
+CREATE UNIQUE INDEX geek_uq_email ON cg.geek (email);
+CREATE INDEX geek_ix_updated_at ON cg.geek (updated_at);
 
-GRANT SELECT, UPDATE, INSERT ON "1".geek TO lurker;
-GRANT SELECT, UPDATE, INSERT ON "1".geek TO api;
+GRANT SELECT, UPDATE, INSERT ON cg.geek TO lurker;
+GRANT SELECT, UPDATE, INSERT ON cg.geek TO maestro;
 
 COMMIT;

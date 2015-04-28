@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP FUNCTION "1".upsert_geek(TEXT, TEXT);
+DROP FUNCTION cg.upsert_geek(TEXT, TEXT);
 
 COMMIT;

@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP SCHEMA "1";
+DROP SCHEMA cg;
 
 COMMIT;

@@ -7,7 +7,7 @@
 
 BEGIN;
 
-CREATE FUNCTION "1".star_comic(
+CREATE FUNCTION cg.star_comic(
     _geek_id INTEGER,
     _comic_id TEXT, 
     _is_starred BOOLEAN)
@@ -16,7 +16,7 @@ $$
 BEGIN
     LOOP
         -- first try to update the key
-        UPDATE "1".comic_geek
+        UPDATE cg.comic_geek
         SET (comic_id, geek_id, is_starred)
         = (_comic_id, _geek_id, _is_starred)
         WHERE comic_id = _comic_id and geek_id = _geek_id;
@@ -27,7 +27,7 @@ BEGIN
         -- if someone else inserts the same key concurrently,
         -- we could get a unique-key failure
         BEGIN
-            INSERT INTO "1".comic_geek (comic_id, geek_id, is_starred)
+            INSERT INTO cg.comic_geek (comic_id, geek_id, is_starred)
             VALUES (_comic_id, _geek_id, _is_starred);
         EXCEPTION WHEN unique_violation THEN
             -- do nothing, and loop to try the UPDATE again
@@ -38,6 +38,6 @@ $$
 LANGUAGE plpgsql
 SECURITY DEFINER;
 
-GRANT EXECUTE ON FUNCTION "1".star_comic(INTEGER, TEXT, BOOLEAN) TO maestro;
+GRANT EXECUTE ON FUNCTION cg.star_comic(INTEGER, TEXT, BOOLEAN) TO maestro;
 
 COMMIT;

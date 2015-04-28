@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP FUNCTION "1".comics(INTEGER);
+DROP FUNCTION cg.comics(INTEGER);
 
 COMMIT;

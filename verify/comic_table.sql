@@ -16,7 +16,7 @@ SELECT id,
  	   -- alt_text_parser,
  	   created_at,
  	   updated_at
- FROM "1".comic
+ FROM cg.comic
  WHERE FALSE;
 
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'comic_ix_updated_at';

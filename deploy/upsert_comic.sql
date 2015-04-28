@@ -5,7 +5,7 @@
 
 BEGIN;
 
-CREATE FUNCTION "1".upsert_comic(
+CREATE FUNCTION cg.upsert_comic(
 	_id TEXT,
     _hostname TEXT,
     _title TEXT,
@@ -19,7 +19,7 @@ DECLARE _result TEXT;
 BEGIN
     LOOP
         -- first try to update the key
-        UPDATE "1".comic
+        UPDATE cg.comic
         SET (id, hostname, title, creator, banner_image, first_url, image_parser)
         = (_id, _hostname, _title, _creator, _banner_image, _first_url, _image_parser)
         WHERE id = _id RETURNING id INTO _result;
@@ -30,7 +30,7 @@ BEGIN
         -- if someone else inserts the same key concurrently,
         -- we could get a unique-key failure
         BEGIN
-            INSERT INTO "1".comic (id, hostname, title, creator, banner_image, first_url, image_parser)
+            INSERT INTO cg.comic (id, hostname, title, creator, banner_image, first_url, image_parser)
             VALUES (_id, _hostname, _title, _creator, _banner_image, _first_url, _image_parser)
             RETURNING id INTO _result;
             RETURN _result;
@@ -43,6 +43,6 @@ $$
 LANGUAGE plpgsql
 SECURITY DEFINER;
 
-GRANT EXECUTE ON FUNCTION "1".upsert_comic(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, JSON) TO lurker;
+GRANT EXECUTE ON FUNCTION cg.upsert_comic(TEXT, TEXT, TEXT, TEXT, TEXT, TEXT, JSON) TO lurker;
 
 COMMIT;

@@ -2,6 +2,6 @@
 
 BEGIN;
 
-SELECT has_function_privilege('maestro', '"1".upsert_geek(TEXT, TEXT)', 'execute');
+SELECT has_function_privilege('maestro', 'cg.upsert_geek(TEXT, TEXT)', 'execute');
 
 ROLLBACK;

@@ -2,6 +2,6 @@
 
 BEGIN;
 
-DROP TABLE "1".strip_geek;
+DROP TABLE cg.strip_geek;
 
 COMMIT;

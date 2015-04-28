@@ -4,7 +4,7 @@
 
 BEGIN;
 
-CREATE TABLE "1".comic (
+CREATE TABLE cg.comic (
 id TEXT PRIMARY KEY, -- ID is predetermined in configuration file
 hostname TEXT NOT NULL,
 title TEXT NOT NULL,
@@ -20,6 +20,6 @@ image_parser JSON NOT NULL,
 created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 
-CREATE INDEX comic_ix_updated_at ON "1".comic (updated_at);
+CREATE INDEX comic_ix_updated_at ON cg.comic (updated_at);
 
 COMMIT;

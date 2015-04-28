@@ -2,7 +2,6 @@
 %project=cdb
 %uri=https://github.com/comicgator/cdb/
 
-postgrest_auth 2015-02-28T22:51:51Z Mr ComicGator <mr@comicgator.com> # Schema, table and trigger for postgres to use basic auth for access to the database.
 roles 2015-02-19T18:16:49Z Mr ComicGator <mr@comicgator.com> # Roles for accessing the database.
 schema [roles] 2015-02-19T18:28:10Z Mr ComicGator <mr@comicgator.com> # Create schema cg, short for comicgator.
 comic_table [roles schema] 2015-02-19T18:49:33Z Mr ComicGator <mr@comicgator.com> # Table for comic data.
