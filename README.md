@@ -2,7 +2,7 @@
 
 Welcome to cdb! ComicGator was imagined as a multi component system. So it never made sense that the database would be 'owned' by the webapp and therefore a more traditional ORM managed approach would introduce more complexity than was necessary.
 
-This repository represents the [sqitch](http://sqitch.org/) organized postgresql schema for ComicGator. No knowledge of sqitch is required to run cdb but it definitely informs how the database is extended and migrated which this readme covers in more detail below.
+This repository represents the [sqitch](http://sqitch.org/) organized PostgreSQL schema for ComicGator. No knowledge of sqitch is required to run cdb but it definitely informs how the database is extended and changed which this README covers in more detail below.
 
 ## Getting started
 The two pillars of infrastructure for ComicGator ([lurker](https://github.com/comicgator/lurker) and [maestro](https://github.com/comicgator/maestro)) each depend on cdb so this is a good place to start. Inside this repository is a VagrantFile which describes a virtual machine and provisioning script which makes installation fairly painless.
@@ -25,13 +25,15 @@ Run `vagrant halt` to suspend the vm. If you feel the need to start from scratch
 
 ## Why
 
-I assume you are asking why is your database version controlled and what is this beast called sqitch.
+It is assumed you are asking why is this database version controlled? And what is this beast called sqitch?
 
- 
+The answer to both these questions comes with the acquisition of a working knowledge of [sqitch](http://sqitch.org/). The short explanation is the sqitch is a giant Perl library that manages changes to anything with SQL in the name and does so in manner that is friendly to any vcs.
 
+In the case of cdb; the SQL is PostgreSQL, and the vcs is git. This repositories primary feature is the sqitch.plan file, which provides an index and ordering of the set of sql files that represent the cdb schema. Sqitch organizes this set of files in three folders; deploy, verify, and revert. Each filename triplicated across these folders and the sql scripts within implement the deployment, verification and reversion of some isolated change in the schema.
 
-## Contributing
+Groups of these files can be tagged with a version, and then later reworked so that the database can easily migrate from one version to any other and back again.
 
+Sqitch provides a source of truth and security for evolving a database through development and after deployment.
 
 ## License
 cdb is created under the lovely MIT license, see the LICENSE file for more information.
