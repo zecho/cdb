@@ -1,7 +1,0 @@
--- Revert upsert_strip
-
-BEGIN;
-
-DROP FUNCTION cg.upsert_strip(TEXT, VARCHAR(32), TEXT, INTEGER, TEXT, TEXT, TEXT, TEXT, TEXT, BOOLEAN);
-
-COMMIT;

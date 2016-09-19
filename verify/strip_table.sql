@@ -5,20 +5,21 @@ BEGIN;
 SELECT id,
 	comic_id,
 	checksum,
-	title,
 	number,
 	url,
-	image_url,
+	image_urls,
 	thumbnail_image_url,
-	alt_text,
+	title,
+	image_alt,
+	image_title,
+	bonus_image_url,
 	is_special,
 	created_at,
 	updated_at
  FROM cg.strip
  WHERE FALSE;
 
-SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_uq_checksum';
-SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_uq_comic_number';
+SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_uq_comic_id_number';
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_ix_updated_at';
 
 ROLLBACK;

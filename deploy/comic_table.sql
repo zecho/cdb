@@ -1,22 +1,19 @@
 -- Deploy comic_table
--- requires: roles
 -- requires: schema
+-- requires: generate_object_id
 
 BEGIN;
 
 CREATE TABLE cg.comic (
-id TEXT PRIMARY KEY, -- ID is predetermined in configuration file
+id VARCHAR(24) NOT NULL DEFAULT cg.generate_object_id() PRIMARY KEY,
 hostname TEXT NOT NULL,
 title TEXT NOT NULL,
 creator TEXT NOT NULL,
-banner_image TEXT NOT NULL,
+is_advertised BOOLEAN NOT NULL,
 first_url TEXT NOT NULL,
--- start_url TEXT NOT NULL,
--- next_parser JSON NOT NULL,
-image_parser JSON NOT NULL,
--- title_parser JSON DEFAULT '{}'::JSON,
--- bonus_image_parser JSON DEFAULT '{}'::JSON,
--- alt_text_parser JSON DEFAULT '{}'::JSON,
+patreon_url TEXT DEFAULT NULL,
+store_url TEXT DEFAULT NULL,
+banner_image TEXT NOT NULL,
 created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 
