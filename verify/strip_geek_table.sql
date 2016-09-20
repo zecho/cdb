@@ -10,7 +10,7 @@ SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_geek_ix_strip_id';
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_geek_ix_geek_id';
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_geek_ix_updated_at';
 
-SELECT has_table_privilege('vagrant', 'cg.strip', 'update');
-SELECT has_table_privilege('vagrant', 'cg.strip', 'insert');
+SELECT has_table_privilege('mrcg', 'cg.strip', 'update');
+SELECT has_table_privilege('mrcg', 'cg.strip', 'insert');
 
 ROLLBACK;

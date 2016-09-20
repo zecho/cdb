@@ -11,6 +11,6 @@ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 CREATE UNIQUE INDEX verification_uq_email ON cg.verification (email);
 CREATE INDEX verification_ix_created_at ON cg.verification (created_at);
 
-GRANT SELECT, UPDATE, INSERT ON cg.verification TO vagrant;
+GRANT SELECT, UPDATE, INSERT ON cg.verification TO mrcg;
 
 COMMIT;

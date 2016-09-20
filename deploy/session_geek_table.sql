@@ -11,6 +11,6 @@ created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 CREATE INDEX session_geek_ix_geek_id ON cg.session_geek (geek_id);
 CREATE INDEX session_geek_ix_created_at ON cg.session_geek (created_at);
 
-GRANT SELECT, UPDATE, INSERT ON cg.session_geek TO vagrant;
+GRANT SELECT, UPDATE, INSERT ON cg.session_geek TO mrcg;
 
 COMMIT;
