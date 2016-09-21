@@ -6,7 +6,7 @@
 	revert_dir = revert
 	verify_dir = verify
 	extension = sql
-[target "cdb"]
+[target "dev"]
 	uri = db:pg://mrcg:mrcg@localhost:5432/cdb
 [engine "pg"]
 	target = cdb
