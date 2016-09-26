@@ -22,4 +22,8 @@ SELECT id,
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_uq_comic_id_number';
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'strip_ix_updated_at';
 
+SELECT has_table_privilege('mrcg', 'cg.strip', 'select');
+SELECT has_table_privilege('mrcg', 'cg.strip', 'update');
+SELECT has_table_privilege('mrcg', 'cg.strip', 'insert');
+
 ROLLBACK;

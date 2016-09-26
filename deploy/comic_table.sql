@@ -19,4 +19,6 @@ updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 
 CREATE INDEX comic_ix_updated_at ON cg.comic (updated_at);
 
+GRANT SELECT, UPDATE, INSERT ON cg.comic TO mrcg;
+
 COMMIT;

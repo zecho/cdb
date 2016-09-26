@@ -18,4 +18,6 @@ CREATE INDEX comic_geek_ix_geek_id ON cg.comic_geek (geek_id);
 CREATE INDEX comic_geek_ix_comic_id ON cg.comic_geek (comic_id);
 CREATE INDEX comic_geek_ix_updated_at ON cg.comic_geek (updated_at);
 
+GRANT SELECT, UPDATE, INSERT ON cg.comic_geek TO mrcg;
+
 COMMIT;

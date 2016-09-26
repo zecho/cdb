@@ -18,4 +18,8 @@ SELECT id,
 
 SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'comic_ix_updated_at';
 
+SELECT has_table_privilege('mrcg', 'cg.comic', 'select');
+SELECT has_table_privilege('mrcg', 'cg.comic', 'update');
+SELECT has_table_privilege('mrcg', 'cg.comic', 'insert');
+
 ROLLBACK;

@@ -18,6 +18,6 @@ CREATE INDEX strip_geek_ix_geek_id ON cg.strip_geek (geek_id);
 CREATE INDEX strip_geek_ix_strip_id ON cg.strip_geek (strip_id);
 CREATE INDEX strip_geek_ix_updated_at ON cg.strip_geek (updated_at);
 
-GRANT INSERT, UPDATE ON cg.strip_geek TO mrcg;
+GRANT SELECT, UPDATE, INSERT ON cg.strip_geek TO mrcg;
 
 COMMIT;

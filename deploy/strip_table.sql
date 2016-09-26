@@ -24,4 +24,6 @@ updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
 CREATE UNIQUE INDEX strip_uq_comic_id_number ON cg.strip (comic_id, number);
 CREATE INDEX strip_ix_updated_at ON cg.strip (updated_at);
 
+GRANT SELECT, UPDATE, INSERT ON cg.strip TO mrcg;
+
 COMMIT;
