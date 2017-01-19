@@ -4,6 +4,7 @@ BEGIN;
 
 SELECT feed_id,
 	   comic_id,
+       is_latest,
        cron,
        mark,
        step,

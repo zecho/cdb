@@ -7,10 +7,11 @@ BEGIN;
 CREATE TABLE cg.feed_strip (
 feed_id VARCHAR(24) NOT NULL REFERENCES cg.feed(id),
 strip_id VARCHAR(24) NOT NULL REFERENCES cg.strip(id),
-published_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (feed_id, strip_id));
 
-CREATE INDEX feed_strip_ix_published_at ON cg.feed_strip (published_at);
+CREATE INDEX feed_strip_ix_updated_at ON cg.feed_strip (updated_at);
 
 GRANT SELECT, UPDATE, INSERT ON cg.feed_strip TO mrcg;
 

@@ -3,12 +3,13 @@
 BEGIN;
 
 SELECT feed_id,
-	   strip_id,
-       published_at
+	 strip_id,
+       created_at,
+       updated_at
  FROM cg.feed_strip
  WHERE FALSE;
 
-SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'feed_strip_ix_published_at';
+SELECT 1/count(*) FROM pg_indexes WHERE indexname = 'feed_strip_ix_updated_at';
 
 SELECT has_table_privilege('mrcg', 'cg.feed_strip', 'select');
 SELECT has_table_privilege('mrcg', 'cg.feed_strip', 'update');
