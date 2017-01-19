@@ -29,4 +29,4 @@ I keep my configuration private on account of it contains my production target a
 
 `sqitch deploy`
 
-to deploy the schema. 
+to deploy the schema.
